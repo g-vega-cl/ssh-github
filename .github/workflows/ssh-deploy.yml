@@ -1,6 +1,6 @@
 name: Node CI
 
-on: []
+on: [push]
 
 jobs:
   build:
@@ -27,4 +27,4 @@ jobs:
     - name: Adding Known Hosts
       run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
     - name: Deploy with rsync
-      run: rsync -avz ./dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/ssh-github/dist/
+      run: rsync -avz ./dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/runner/work/ssh-github/ssh-github/dist/
