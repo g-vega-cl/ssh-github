@@ -1,29 +1,46 @@
-name: Node CI
+name: Node Github CI
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-  build:
+  test:
 
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node-version: [8.x, 10.x, 12.x]
+
     steps:
-    - uses: actions/checkout@v1
-    - name: Install Node.js
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
-        node-version: '10.x'
-    - name: Install npm dependencies
-      run: npm install
-    - name: Run build task
-      run: npm run build --if-present
-    - name: Deploy to Server
-      uses: easingthemes/ssh-deploy@main
+        node-version: ${{ matrix.node-version }}
+    - name: npm install and test
+      run: |
+        npm install
+        npm test
       env:
-          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
-          ARGS: "-rltgoDzvO --delete"
-          SOURCE: "dist/"
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          TARGET: ${{ secrets.REMOTE_TARGET }}
-          EXCLUDE: "/dist/, /node_modules/"
+        CI: true
+
+  deploy:
+    needs: [test]
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: SSH and deploy node app
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.REMOTE_HOST }}
+        username: ${{ secrets.REMOTE_USER }}
+        key: ${{ secrets.SERVER_SSH_KEY }}
+        port: 22
+        script: |
+          cd ~/node-github-demo
+          git pull origin master
+          npm install --production
+          pm2 restart node-app
