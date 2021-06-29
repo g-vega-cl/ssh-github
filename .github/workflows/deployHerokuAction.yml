@@ -20,3 +20,10 @@ jobs:
         heroku_email: ${{secrets.HEROKU_EMAIL}}
         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
         heroku_app_name: "fast-harbor-95243"
+        justlogin: true
+    - name: whoami heroku
+      run: heroku auth:whoami
+    - name: set heroku remote
+      run: heroku git:remote --ssh-git -a fast-harbor-95243 
+    - name: push heroku
+      run: git push heroku main
