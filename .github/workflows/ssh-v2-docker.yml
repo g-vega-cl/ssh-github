@@ -27,15 +27,7 @@ jobs:
       run: git config --global url.ssh://git@heroku.com/.insteadOf https://git.heroku.com/
     - name: verify ssh to heroku
       run: ssh -v git@heroku.com
-    # - name: Login to Heroku Container registry
-    #   env: 
-    #     HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-    #   run: heroku container:login
-    # - name: Build and push
-    #   env:
-    #     HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-    #   run: heroku container:push -a ssh-github web 
-    # - name: Release
-    #   env:
-    #     HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-    #   run: heroku container:release -a ssh-github web
+    - name: Build and push
+      run: heroku container:push -a --ssh-git ssh-github web 
+    - name: Release
+      run: heroku container:release -a --ssh-git ssh-github web
