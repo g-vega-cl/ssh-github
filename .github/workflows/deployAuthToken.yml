@@ -16,8 +16,8 @@ jobs:
     - name: Run build task
       run: npm run build --if-present
     - name: Deploy to Heroku
-        uses: behe/heroku-build@v1
-        with:
-          app-name: "your-app-name-on-heroku"
-          api-key: "${{secrets.HEROKU_API_KEY}}"
-          path: "optional-path-of-build-to-deploy"
+      uses: behe/heroku-build@v1
+      with:
+        app-name: "your-app-name-on-heroku"
+        api-key: "${{secrets.HEROKU_API_KEY}}"
+        path: "optional-path-of-build-to-deploy"
