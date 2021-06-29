@@ -29,8 +29,8 @@ jobs:
         if_key_exists: fail
     - name: Adding Known Hosts
       run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
-    - name: use ssh
-      run: git config --global url.ssh://git@heroku.com/.insteadOf https://git.heroku.com/
+    # - name: use ssh
+    #   run: git config --global url.ssh://git@heroku.com/.insteadOf https://git.heroku.com/
     - name: whoami heroku
       run: heroku auth:whoami
     - name: set heroku remote
