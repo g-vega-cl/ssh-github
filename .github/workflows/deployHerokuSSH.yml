@@ -42,6 +42,6 @@ jobs:
     - name: filter branch all
       run: git filter-branch -- --all
     - name: pull
-      run: git pull
+      run: git pull origin main 
     - name: push heroku
       run: git push heroku main
