@@ -23,5 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 node_modules
 
-githubkey
-githubkey.pub
+ssh-test-github
+ssh-test-github.pub
