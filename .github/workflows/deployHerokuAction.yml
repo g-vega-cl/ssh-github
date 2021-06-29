@@ -19,12 +19,12 @@ jobs:
       with:
         heroku_email: ${{secrets.HEROKU_EMAIL}}
         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-        heroku_app_name: "fast-harbor-95243"
+        heroku_app_name: "new-fast-harbor-95243"
         justlogin: true
     - name: whoami heroku
       run: heroku auth:whoami
     - name: set heroku remote
-      run: heroku git:remote -a fast-harbor-95243  #--ssh-git ??? gives host key error, need to place it somewhere
+      run: heroku git:remote -a new-fast-harbor-95243  #--ssh-git ??? gives host key error, need to place it somewhere
     - name: unshallow repository
       run: git fetch --all --unshallow
     - name: push heroku
