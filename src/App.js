@@ -9,7 +9,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <p>minimal -1</p>
+        <p>minimal +1-2</p>
       </header>
     </div>
   );
