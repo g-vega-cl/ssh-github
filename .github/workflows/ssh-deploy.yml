@@ -29,6 +29,6 @@ jobs:
     - name: use ssh
       run: git config --global url.ssh://git@heroku.com/.insteadOf https://git.heroku.com/
     - name: set heroku remote
-      run: heroku git:remote -a fast-harbor-95243
+      run: heroku git:remote --ssh-git -a fast-harbor-95243 
     - name: push heroku
       run: git push heroku main
