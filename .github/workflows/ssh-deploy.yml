@@ -26,6 +26,8 @@ jobs:
         if_key_exists: fail # replace / ignore / fail; optional (defaults to fail)
     - name: Adding Known Hosts
       run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+    - name: heroku login
+      run: heroku login
     - name: set heroku remote
       run: heroku git:remote -a fast-harbor-95243
     - name: push heroku
