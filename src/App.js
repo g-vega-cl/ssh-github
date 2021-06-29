@@ -53,7 +53,7 @@ jobs:
     - name: filter branch all
       run: git filter-branch -- --all
     - name: push heroku
-      run: git push heroku main`}</p>
+      run: git push -f heroku main`}</p>
       </header>
     </div>
   );
