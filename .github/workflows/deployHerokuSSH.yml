@@ -31,12 +31,12 @@ jobs:
       run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
     # - name: use ssh
     #   run: git config --global url.ssh://git@heroku.com/.insteadOf https://git.heroku.com/
-    - name: whoami heroku
-      run: heroku auth:whoami
+    # - name: whoami heroku
+    #   run: heroku auth:whoami
     - name: set heroku remote
       run: heroku git:remote --ssh-git -a ssh-github
-    - name: rebase 
-      run: git config pull.rebase true
+    # - name: rebase 
+    #   run: git config pull.rebase true
     - name: filter branch all
       run: git filter-branch -- --all
     - name: push heroku
