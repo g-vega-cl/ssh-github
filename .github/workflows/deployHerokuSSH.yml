@@ -41,8 +41,8 @@ jobs:
     #   run: ssh -v git@heroku.com
     - name: rebase 
       run: git config pull.rebase true
-    - name: pull
-      run: git pull origin main
+    - name: pull heroku main
+      run: git pull heroku main
     - name: filter branch all
       run: git filter-branch -- --all
     - name: push heroku
