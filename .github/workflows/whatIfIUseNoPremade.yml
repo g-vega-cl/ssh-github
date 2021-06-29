@@ -1,0 +1,27 @@
+name: Heroku Action No premade
+
+on: [push]
+      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14.x'
+    - name: Install npm dependencies
+      run: npm install
+    - name: Run build task
+      run: npm run build --if-present
+    - name: Login to Heroku Container registry
+      env: 
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      run: heroku container:login 
+    - name: set heroku remote
+      run: heroku git:remote -a ssh-github #--ssh-git
+    - name: filter branch all
+      run: git filter-branch -- --all
+    - name: push heroku
+      run: git push -f heroku main
