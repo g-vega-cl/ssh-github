@@ -22,13 +22,13 @@ jobs:
         heroku_app_name: "ssh-github"
         justlogin: true
     - name: Install SSH key
-          uses: shimataro/ssh-key-action@v2
-          with:
-            key: ${{ secrets.SSH_PRIVATE_KEY }}
-            name: id_rsa # optional
-            known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
-            config: ${{ secrets.CONFIG }} # ssh_config; optional
-            if_key_exists: fail # replace / ignore / fail; optional (defaults to fail)
+      uses: shimataro/ssh-key-action@v2
+      with:
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        name: id_rsa # optional
+        known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
+        config: ${{ secrets.CONFIG }} # ssh_config; optional
+        if_key_exists: fail # replace / ignore / fail; optional (defaults to fail)
     - name: whoami heroku
       run: heroku auth:whoami
     - name: set heroku remote
