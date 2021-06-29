@@ -1,6 +1,6 @@
 name: Heroku Action ssh
 
-on: []
+on: [push]
       
 jobs:
   build:

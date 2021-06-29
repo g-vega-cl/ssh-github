@@ -1,6 +1,6 @@
 name: Heroku Action No premade
 
-on: [push]
+on: []
       
 jobs:
   build:
