@@ -15,8 +15,8 @@ jobs:
       run: npm install
     - name: Run build task
       run: npm run build --if-present
-    - uses: CDNievas/heroku-action@v1.0 # This is the action
-        with:
-          heroku_email: ${{secrets.HEROKU_EMAIL}}
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "fast-harbor-95243"
+    - uses: CDNievas/heroku-action@v1.0 
+      with:
+        heroku_email: ${{secrets.HEROKU_EMAIL}}
+        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+        heroku_app_name: "fast-harbor-95243"
