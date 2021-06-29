@@ -18,10 +18,18 @@ jobs:
     - name: Login to Heroku Container registry
       env: 
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      run: heroku container:login 
-    - name: set heroku remote
-      run: heroku git:remote -a ssh-github #--ssh-git
-    - name: filter branch all
-      run: git filter-branch -- --all
-    - name: push heroku
-      run: git push -f heroku main
+      run: heroku container:login
+    - name: Build and push
+      env:
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      run: heroku container:push -a ssh-github web 
+    - name: Release
+      env:
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      run: heroku container:release -a ssh-github web 
+    # - name: set heroku remote
+    #   run: heroku git:remote -a ssh-github #--ssh-git
+    # - name: filter branch all
+    #   run: git filter-branch -- --all
+    # - name: push heroku
+    #   run: git push -f heroku main
