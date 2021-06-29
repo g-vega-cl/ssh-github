@@ -26,5 +26,7 @@ jobs:
         if_key_exists: fail # replace / ignore / fail; optional (defaults to fail)
     - name: Adding Known Hosts
       run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
-    - name: Deploy with rsync
-      run: rsync -avz ./dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/https://git.heroku.com/fast-harbor-95243.git
+    - name: set heroku remote
+      run: heroku git:remote -a fast-harbor-95243
+    - name: push heroku
+      run: git push heroku main
