@@ -39,9 +39,11 @@ jobs:
       run: heroku git:remote --ssh-git -a ssh-github  # ??? gives host key error, need to place it somewhere
     # - name: validate ssh   NOTE- gives error but succeeds in logs.
     #   run: ssh -v git@heroku.com
+    - name: rebase 
+      run: git config pull.rebase true
+    - name: pull
+      run: git pull
     - name: filter branch all
       run: git filter-branch -- --all
-    - name: pull
-      run: git pull origin main 
     - name: push heroku
       run: git push heroku main
