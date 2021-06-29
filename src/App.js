@@ -9,14 +9,51 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>{`name: Heroku Action ssh
+
+on: [push]
+      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14.x'
+    - name: Install npm dependencies
+      run: npm install
+    - name: Run build task
+      run: npm run build --if-present
+    # - uses: akhileshns/heroku-deploy@v3.12.12 #CDNievas/heroku-action@v1.0 
+    #   with:
+    #     heroku_email: $ {{secrets.HEROKU_EMAIL}}
+    #     heroku_api_key: $ {{secrets.HEROKU_API_KEY}}
+    #     heroku_app_name: "ssh-github"
+    #     justlogin: true
+    - name: Install SSH key
+      uses: shimataro/ssh-key-action@v2
+      with:
+        key: $ {{ secrets.SSH_PRIVATE_KEY }}
+        name: id_rsa # optional
+        known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
+        config: $ {{ secrets.CONFIG }} # ssh_config; optional
+        if_key_exists: fail # replace / ignore / fail; optional (defaults to fail)
+    - name: Adding Known Hosts
+      run: ssh-keyscan -H $ {{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+    - name: use ssh
+      run: git config --global url.ssh://git@heroku.com/.insteadOf https://git.heroku.com/
+    - name: whoami heroku
+      run: heroku auth:whoami
+    - name: set heroku remote
+      run: heroku git:remote --ssh-git -a ssh-github  # ??? gives host key error, need to place it somewhere
+    # - name: validate ssh   NOTE- gives error but succeeds in logs.
+    #   run: ssh -v git@heroku.com
+    - name: filter branch all
+      run: git filter-branch -- --all
+    - name: push heroku
+      run: git push heroku main`}</p>
       </header>
     </div>
   );
