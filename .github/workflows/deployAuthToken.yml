@@ -20,4 +20,3 @@ jobs:
       with:
         app-name: "your-app-name-on-heroku"
         api-key: "${{secrets.HEROKU_API_KEY}}"
-        path: "optional-path-of-build-to-deploy"
