@@ -37,5 +37,7 @@ jobs:
       run: heroku auth:whoami
     - name: set heroku remote
       run: heroku git:remote --ssh-git -a ssh-github  # ??? gives host key error, need to place it somewhere
+    - name: validate ssh
+      run: ssh -v git@heroku.com
     - name: push heroku
       run: git push heroku main
