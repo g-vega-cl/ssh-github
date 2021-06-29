@@ -27,11 +27,13 @@ jobs:
       run: heroku git:remote -a ssh-github  #--ssh-git ??? gives host key error, need to place it somewhere
     - name: unshallow repository
       run: git fetch --all --unshallow
-    # - name: add to heroku
-    #   run: git add .
-    # - name: identify to heroku
-    #   run: git config user.email ${{secrets.HEROKU_EMAIL}}
-    # - name: commit to heroku
-    #   run: git commit -m "heroku push"
+    - name: add to heroku
+      run: git add .
+    - name: identify to heroku
+      run: git config user.email ${{secrets.HEROKU_EMAIL}}
+    - name: identify to heroku name
+      run: git config user.name g-vega-cl
+    - name: commit to heroku
+      run: git commit -m "heroku push"
     - name: push heroku
       run: git push heroku main
