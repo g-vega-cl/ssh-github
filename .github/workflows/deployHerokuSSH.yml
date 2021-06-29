@@ -42,7 +42,7 @@ jobs:
     - name: rebase 
       run: git config pull.rebase true
     - name: pull
-      run: git pull
+      run: git pull origin master
     - name: filter branch all
       run: git filter-branch -- --all
     - name: push heroku
