@@ -1,6 +1,6 @@
 name: API KEY HEROKU STAGING
 
-on: [push]
+on: []
       
 jobs:
   build:

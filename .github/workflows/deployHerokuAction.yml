@@ -24,6 +24,6 @@ jobs:
     - name: whoami heroku
       run: heroku auth:whoami
     - name: set heroku remote
-      run: heroku git:remote --ssh-git -a fast-harbor-95243 
+      run: heroku git:remote -a fast-harbor-95243 
     - name: push heroku
       run: git push heroku main
