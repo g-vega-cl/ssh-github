@@ -15,10 +15,9 @@ jobs:
       run: npm install
     - name: Run build task
       run: npm run build --if-present
-    - uses: onekiloparsec/heroku-node-deploy-subfolder@v1.1.0
-      with:
-        api_key: ${{secrets.HEROKU_API_KEY}}
-        email: ${{secrets.HEROKU_EMAIL}}
-        app_name: fast-harbor-95243
-        heroku_branch: "main"
-        subfolder: "dist"
+    - name: Deploy to Heroku
+        uses: behe/heroku-build@v1
+        with:
+          app-name: "your-app-name-on-heroku"
+          api-key: "${{secrets.HEROKU_API_KEY}}"
+          path: "optional-path-of-build-to-deploy"
