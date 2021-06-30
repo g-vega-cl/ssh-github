@@ -30,7 +30,7 @@ jobs:
     - name: check remote
       run: git remote -v
     - name: pull
-      run: git pull origin heroku
+      run: git pull origin heroku main
     - name: git add
       run: git add .
     - name: add git identification
