@@ -26,6 +26,6 @@ jobs:
     - name: use ssh
       run: git config --global url.ssh://git@heroku.com/.insteadOf https://git.heroku.com/
     - name: set remote
-      run: heroku git:remote -a ssh-github
+      run: heroku git:remote -a ssh-github --ssh-git
     - name: check ssh validity
       run: ssh -v git@heroku.com
