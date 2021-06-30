@@ -31,6 +31,10 @@ jobs:
       run: git remote -v
     - name: unshallow repository
       run: git pull --all --unshallow
+    - name: git add
+      run: git add .
+    - name: git commit
+      run: git commit -m "push heroku" --allow-empty
     - name: push heroku
       run: git push -f heroku main
     - name: check ssh validity
