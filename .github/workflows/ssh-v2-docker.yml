@@ -23,9 +23,9 @@ jobs:
       run: git remote add heroku git@heroku.com:ssh-github.git
     - name: check remote
       run: git remote -v
-    - name: add git identification
-      # run: | 
-      #   git config --global user.email "you@example.com"
-      #   git config --global user.name "cv"
+    # - name: add git identification
+    #   run: | 
+    #     git config --global user.email "you@example.com"
+    #     git config --global user.name "cv"
     - name: push heroku
       run: git push -f heroku main
