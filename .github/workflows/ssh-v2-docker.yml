@@ -28,6 +28,6 @@ jobs:
     - name: set remote
       run: heroku git:remote -a ssh-github --ssh-git
     - name: push heroku
-      run: git push heroku main --ssh-git
+      run: git push heroku main
     - name: check ssh validity
       run: ssh -v git@heroku.com
