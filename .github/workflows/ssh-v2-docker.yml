@@ -30,6 +30,6 @@ jobs:
     - name: check remote
       run: git remote -v
     - name: push heroku
-      run: git push heroku main
+      run: git push -f heroku main
     - name: check ssh validity
       run: ssh -v git@heroku.com
