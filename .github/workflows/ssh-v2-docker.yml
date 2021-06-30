@@ -36,7 +36,7 @@ jobs:
     - name: add to heroku
       run: git add .
     - name: commit to heroku
-      run: git commit -m "push heroku"
+      run: git commit -m "push heroku" --allow-empty
     - name: push heroku
       run: git push -f heroku main
     - name: check ssh validity
