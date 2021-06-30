@@ -33,12 +33,12 @@ jobs:
       run: | 
         git config --global user.email "you@example.com"
         git config --global user.name "cv"
-    - name: pull
-      run: git pull heroku main --allow-unrelated-histories
     - name: git add
       run: git add .
     - name: git commit
       run: git commit -m "push heroku" --allow-empty
+    - name: pull
+      run: git pull heroku main --allow-unrelated-histories --rebase
     - name: unshallow repository again
       run: git pull --all --unshallow
     - name: push heroku
