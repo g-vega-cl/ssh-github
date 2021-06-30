@@ -25,8 +25,8 @@ jobs:
       run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
     - name: use ssh
       run: git config url.ssh://git@heroku.com/.insteadOf https://git.heroku.com/
-    - name: heroku container login
-      run: heroku container:login -v
+    - name: heroku git:remote
+      run: heroku git:remote
     - name: Build and push
       run: heroku container:push -a ssh-github web
     - name: Release
