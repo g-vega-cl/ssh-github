@@ -29,14 +29,14 @@ jobs:
       run: git remote add heroku git@heroku.com:ssh-github.git
     - name: check remote
       run: git remote -v
-    - name: pull
-      run: git pull heroku main --allow-unrelated-histories
-    - name: git add
-      run: git add .
     - name: add git identification
       run: | 
         git config --global user.email "you@example.com"
         git config --global user.name "cv"
+    - name: pull
+      run: git pull heroku main --allow-unrelated-histories
+    - name: git add
+      run: git add .
     - name: git commit
       run: git commit -m "push heroku" --allow-empty
     - name: unshallow repository again
