@@ -8,7 +8,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>ssh - alone -actions!-really?</p>
         <p>ABSO-LUTELY</p>
-        <p>MINIMIZE</p>
+        <p>MINIMIZE pt 2</p>
       </header>
     </div>
   );
