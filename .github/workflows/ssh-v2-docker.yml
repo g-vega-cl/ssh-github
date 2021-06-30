@@ -26,7 +26,7 @@ jobs:
     - name: use ssh
       run: git config url.ssh://git@heroku.com/.insteadOf https://git.heroku.com/
     - name: heroku git:remote
-      run: heroku git:remote
+      run: heroku git:remote ssh-github
     - name: Build and push
       run: heroku container:push -a ssh-github web
     - name: Release
