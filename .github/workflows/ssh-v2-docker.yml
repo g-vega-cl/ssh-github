@@ -29,8 +29,8 @@ jobs:
       run: git remote add heroku git@heroku.com:ssh-github.git
     - name: check remote
       run: git remote -v
-    - name: unshallow repository
-      run: git pull --all --unshallow
+    - name: pull
+      run: git pull origin heroku
     - name: git add
       run: git add .
     - name: add git identification
