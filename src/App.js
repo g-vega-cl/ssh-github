@@ -6,8 +6,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>ssh - alone -actions!-really?</p>
-        <p>MINIMIZE no force</p>
+        <p>SSH_PRIVATE_KEY = the private key -----BEGIN OPENSSH PRIVATE KEY------ absdbwiqudbasjdbkwu</p>
+        <p>SSH_HOST = heroku.com</p>
+        <p>GIT = git@heroku.com:ssh-github.git    the ssh-github is the heroku app name</p>
       </header>
     </div>
   );
