@@ -35,8 +35,8 @@ jobs:
       run: git add .
     - name: add git identification
       run: | 
-      git config --global user.email "you@example.com"
-      git config --global user.name "cv"
+        git config --global user.email "you@example.com"
+        git config --global user.name "cv"
     - name: git commit
       run: git commit -m "push heroku" --allow-empty
     - name: push heroku
