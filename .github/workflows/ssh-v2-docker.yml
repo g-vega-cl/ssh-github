@@ -30,7 +30,7 @@ jobs:
     - name: check remote
       run: git remote -v
     - name: pull
-      run: git pull heroku main
+      run: git pull heroku main --allow-unrelated-histories
     - name: git add
       run: git add .
     - name: add git identification
