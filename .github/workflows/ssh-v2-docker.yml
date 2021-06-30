@@ -39,6 +39,8 @@ jobs:
         git config --global user.name "cv"
     - name: git commit
       run: git commit -m "push heroku" --allow-empty
+    - name: unshallow repository again
+      run: git pull --all --unshallow
     - name: push heroku
       run: git push -f heroku main
     - name: check ssh validity
