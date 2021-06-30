@@ -1,4 +1,4 @@
-name: Heroku Action No premade
+name: Manually dispatch to heroku through ssh
 
 on: [workflow_dispatch]
       
