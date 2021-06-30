@@ -9,7 +9,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <p>ssh - alone -actions!</p>
+        <p>ssh - alone -actions!-really?</p>
       </header>
     </div>
   );
